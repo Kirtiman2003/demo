@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/OM%20SHUKLA/Downloads/Operation.wsdl" uri="src/conf/xml-resources/web-service-references/Operation/wsdl/Operation.wsdl"/>
+    <system systemId="http://localhost:44342/Operation.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/Operation/wsdl/localhost_44342/Operation.asmx.wsdl"/>
+    <system systemId="http://localhost:44367/Operation.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/Operation_1/wsdl/localhost_44367/Operation.asmx.wsdl"/>
+</catalog>
