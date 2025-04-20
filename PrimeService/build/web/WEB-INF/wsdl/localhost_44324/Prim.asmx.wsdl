@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="IsPrime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="number" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPrimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsPrimeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsPrimeSoapIn">
+    <wsdl:part name="parameters" element="tns:IsPrime" />
+  </wsdl:message>
+  <wsdl:message name="IsPrimeSoapOut">
+    <wsdl:part name="parameters" element="tns:IsPrimeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PrimSoap">
+    <wsdl:operation name="IsPrime">
+      <wsdl:input message="tns:IsPrimeSoapIn" />
+      <wsdl:output message="tns:IsPrimeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PrimSoap" type="tns:PrimSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsPrime">
+      <soap:operation soapAction="http://tempuri.org/IsPrime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrimSoap12" type="tns:PrimSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsPrime">
+      <soap12:operation soapAction="http://tempuri.org/IsPrime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Prim">
+    <wsdl:port name="PrimSoap" binding="tns:PrimSoap">
+      <soap:address location="http://localhost:44324/Prim.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrimSoap12" binding="tns:PrimSoap12">
+      <soap12:address location="http://localhost:44324/Prim.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
